@@ -32,11 +32,11 @@ function ArraysEx() {
             <h1>Arrays Exercise</h1>
             <div>
                 <h2>Colors</h2>
-                <ul>
+                <ol>
                     {colors.map(color => (
                         <li>{color}</li>
                     ))}
-                </ul>
+                </ol>
                 <button onClick={() => addColor('green')}>Add Green</button>
                 <button onClick={() => addColor('blue')}>Add Blue</button>
                 <button onClick={() => addColor('violet')}>Add Violet</button>
