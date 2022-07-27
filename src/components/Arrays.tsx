@@ -52,9 +52,9 @@ function ArraysEx() {
                     </tr>
                     {pets.map((pet, i) => (
                         <tr key={pet.id}>
-                            <td key={pet.id}>{pet.name}</td>
-                            <td key={pet.id}>{pet.type}</td>
-                            <td key={pet.id}><button onClick={() => removePet(i)}>Delete</button></td>
+                            <td>{pet.name}</td>
+                            <td>{pet.type}</td>
+                            <td><button onClick={() => removePet(i)}>Delete</button></td>
                         </tr>
                     ))}
                 </table>
