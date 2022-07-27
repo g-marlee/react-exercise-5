@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ArraysEx from './Arrays';
+import ArraysEx from './components/Arrays';
 
 function App() {
   return (
