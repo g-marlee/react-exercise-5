@@ -2,15 +2,17 @@ import { useState } from 'react';
 import '../App.css';
 import { nanoid } from 'nanoid';
 
-interface Pet {
-    name: string;
-    type: string;
-    id: string;
-}
+
 
 function ArraysEx() {
+    interface Pet {
+        name: string;
+        type: string;
+        id: string;
+    }
+
     const [colors, setColors] = useState(['red', 'orange', 'yellow']); 
-    const [pets, setPets] = useState([
+    const [pets, setPets] = useState<Pet[]>([
         {name: 'Smudge', type: 'cat', id: nanoid(5)},
         {name: 'Pudge', type: 'cat', id: nanoid(5)},
         {name: 'Smaug', type: 'fish', id: nanoid(5)}
@@ -18,6 +20,10 @@ function ArraysEx() {
 
     function addColor(color: string): void {
         setColors([...colors, color]);
+    }
+
+    const removePet = (i: number) => {
+        setPets(prev => [...prev.slice(0, i), ...prev.slice(i + 1)])
     }
 
 
@@ -42,11 +48,13 @@ function ArraysEx() {
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
+                        <th>Action</th>
                     </tr>
-                    {pets.map((pet) => (
-                        <tr>
+                    {pets.map((pet, i) => (
+                        <tr key={pet.id}>
                             <td key={pet.id}>{pet.name}</td>
                             <td key={pet.id}>{pet.type}</td>
+                            <td key={pet.id}><button onClick={() => removePet(i)}>Delete</button></td>
                         </tr>
                     ))}
                 </table>
